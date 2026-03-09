@@ -34,6 +34,18 @@ footer{
     background-color:#212121 !important;
 }
 
+[data-testid="stAppViewContainer"]{
+    background-color:#212121 !important;
+}
+
+[data-testid="stHeader"]::before{
+    background-color:#212121 !important;
+}
+
+[data-testid="stDecoration"]{
+    background:#212121 !important;
+}
+
 .block-container{
     max-width:850px;
 }
