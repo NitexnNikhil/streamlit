@@ -1,48 +1,49 @@
 # Gemini Chatbot (Streamlit)
 
-A lightweight Gemini chatbot built with Streamlit and Python.
+Simple Streamlit chatbot UI connected to Google Gemini.
 
-## Current UI/UX
-- Dark theme chat interface
-- User and assistant chat bubbles
-- In-session chat memory (until app refresh/restart)
-- Single conversation flow (no sidebar/history manager)
+## What This Project Is
+- Single-chat conversational app
+- Dark themed UI
+- User message bubble on the left
+- Assistant message bubble on the right
+- Session-based memory (`st.session_state`)
 
-## Tech Stack
+## Stack
 - Python 3.10+
 - Streamlit
-- Google Gemini API (`google-generativeai`)
+- `google-generativeai`
 - `python-dotenv`
 
-## Project Files
-- `app.py`: Main Streamlit app
-- `requirements.txt`: Dependencies
-- `.env.example`: Environment variable template
-- `BUILD_INSTRUCTIONS.md`: Full setup and run guide
+## Files
+- `app.py` - Main application
+- `requirements.txt` - Dependencies
+- `.env.example` - Environment template
+- `BUILD_INSTRUCTIONS.md` - Full setup + troubleshooting guide
 
 ## Quick Start
-1. Install dependencies:
+1. Install:
    ```bash
    pip install -r requirements.txt
    ```
-2. Create `.env`:
+2. Create env file:
    ```bash
    cp .env.example .env
    ```
-3. Add Gemini credentials in `.env`:
+3. Add credentials:
    ```env
    GOOGLE_API_KEY=your_real_gemini_api_key
    GEMINI_MODEL=gemini-2.0-flash
    ```
-4. Run app:
+4. Run:
    ```bash
    streamlit run app.py
    ```
 
 ## Environment Variables
-- `GOOGLE_API_KEY` (required): Gemini API key
-- `GEMINI_MODEL` (optional): Gemini model name (default in app if missing)
+- `GOOGLE_API_KEY` (required)
+- `GEMINI_MODEL` (optional, default: `gemini-2.0-flash`)
 
 ## Notes
-- `.env` is already ignored via `.gitignore`.
-- If you get a model `404` error, set `GEMINI_MODEL` in `.env` to a model available for your API key/project.
+- `.env` is ignored by git.
+- If a model is unavailable for your key/project, set `GEMINI_MODEL` to a supported one.
