@@ -10,44 +10,46 @@ MODEL_NAME = os.getenv("GEMINI_MODEL", "gemini-1.5-flash")
 
 st.set_page_config(page_title="Gemini Chat", layout="centered")
 
-st.markdown(
-"""
+st.markdown("""
 <style>
 
-.stApp{
-    background-color:#212121;
-}
-
-header{
-    background-color:#212121 !important;
-}
-
-footer{
-    background-color:#212121 !important;
-}
-
-[data-testid="stHeader"]{
-    background-color:#212121 !important;
-}
-
-[data-testid="stToolbar"]{
-    background-color:#212121 !important;
-}
-
-[data-testid="stAppViewContainer"]{
-    background-color:#212121 !important;
-}
-
-[data-testid="stHeader"]::before{
-    background-color:#212121 !important;
-}
-
-[data-testid="stDecoration"]{
+html, body, .stApp {
     background:#212121 !important;
 }
 
-.block-container{
-    max-width:850px;
+[data-testid="stAppViewContainer"]{
+    background:#212121 !important;
+}
+
+header, footer,
+[data-testid="stHeader"],
+[data-testid="stToolbar"]{
+    background:#212121 !important;
+}
+
+.st-emotion-cache-hzygls{
+    background:#212121 !important;
+}
+
+.stBottom{
+    background:#212121 !important;
+}
+
+[data-testid="stBottomBlockContainer"]{
+    background:#212121 !important;
+}
+
+[data-testid="stChatInput"]{
+    background:#212121 !important;
+}
+
+textarea{
+    background:#303030 !important;
+    color:white !important;
+}
+
+.chat-container{
+    width:100%;
 }
 
 .user-msg{
@@ -56,8 +58,8 @@ footer{
     padding:12px 16px;
     border-radius:12px;
     margin:10px 0;
+    max-width:70%;
     width:fit-content;
-    max-width:75%;
 }
 
 .assistant-msg{
@@ -66,27 +68,12 @@ footer{
     padding:12px 16px;
     border-radius:12px;
     margin:10px 0 10px auto;
+    max-width:70%;
     width:fit-content;
-    max-width:75%;
-}
-
-[data-testid="stChatMessageAvatar"]{
-    display:none;
-}
-
-textarea{
-    background:#303030 !important;
-    color:white !important;
-}
-
-[data-testid="stChatInput"]{
-    background:#303030;
 }
 
 </style>
-""",
-unsafe_allow_html=True
-)
+""", unsafe_allow_html=True)
 
 st.markdown("## 🤖 Gemini Chatbot")
 
@@ -94,6 +81,8 @@ if "messages" not in st.session_state:
     st.session_state.messages = [
         {"role":"assistant","content":"Hi! I am your Gemini assistant. How can I help you today?"}
     ]
+
+st.markdown('<div class="chat-container">', unsafe_allow_html=True)
 
 for msg in st.session_state.messages:
     if msg["role"]=="user":
@@ -106,6 +95,8 @@ for msg in st.session_state.messages:
             f'<div class="assistant-msg">{msg["content"]}</div>',
             unsafe_allow_html=True
         )
+
+st.markdown('</div>', unsafe_allow_html=True)
 
 if prompt := st.chat_input("Message Gemini..."):
 
