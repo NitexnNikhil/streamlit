@@ -1,0 +1,21 @@
+{
+  "active_chat_id": "8aab4791-5ec7-4b6b-b513-045dd22873cc",
+  "chats": [
+    {
+      "id": "8aab4791-5ec7-4b6b-b513-045dd22873cc",
+      "title": "New Chat",
+      "folder": "General",
+      "created_at": "2026-03-09T13:48:03",
+      "updated_at": "2026-03-09T13:48:03",
+      "archived": false,
+      "messages": [
+        {
+          "role": "assistant",
+          "content": "Ready. Describe your task and I will help you step by step.",
+          "time": "13:48",
+          "attachments": []
+        }
+      ]
+    }
+  ]
+}
